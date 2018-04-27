@@ -3,3 +3,5 @@ Deyi/.idea/deyi.iml
 Deyi/.idea/modules.xml
 Deyi/.idea/workspace.xml
 .idea/*
+__pycache__/*
+*.pyc
