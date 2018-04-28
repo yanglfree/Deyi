@@ -19,7 +19,7 @@ NEWSPIDER_MODULE = 'Deyi.spiders'
 #USER_AGENT = 'Deyi (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -43,7 +43,7 @@ DEFAULT_REQUEST_HEADERS = {
     'User-Agent':'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Mobile Safari/537.36',
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     'Accept-Language': 'en',
-    'Referer' : 'http://m.deyi.com/board.html',
+    'Referer' : 'http://m.deyi.com/forum-41-1.html',
 }
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html

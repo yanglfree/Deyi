@@ -41,6 +41,7 @@ class ArticleItem(scrapy.Item):
     comments = scrapy.Field() #回复数
     reads = scrapy.Field() #阅读数
     ups = scrapy.Field() #点赞数
+    content = scrapy.Field() #帖子正文
     pass
 
 # 板块
