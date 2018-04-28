@@ -1,6 +1,7 @@
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy import Request
-from items import ArticleItem
+from Deyi.items import ArticleItem
+from Deyi.items import CommentItem
 from urllib.parse import urljoin
 
 
@@ -50,8 +51,12 @@ class HomeSpider(CrawlSpider):
 
     def parse_item(self, response):
         item = ArticleItem()
-        item['title'] = response.xpath('//h1[1]/text').extract()
-        item['content'] = response.xpath("string(//article[@class='content-main'//p])").extract()
+        item['title'] = response.xpath('//h1/text()').extract()
+        item['content'] = response.xpath('//article[@class="content-main"]/p//text()').extract()
+        commentItem = CommentItem()
+        # commentItem['']
+        #
+        # item['comment'] =
         print(item)
         yield item
 
@@ -62,7 +67,7 @@ class HomeSpider(CrawlSpider):
         # print(response.url)
         selList = response.xpath('//section[@class="community-content"]/section')
         # selList = response.xpath('//section[@class="index-column"]/ul/li')
-        for i in range(1,50):
+        for i in range(1,10):
             url = ('http://m.deyi.com/forum-41-%d.html') % (i + 1)
             if url not in self.pages:
                 self.pages.add(url)
@@ -85,4 +90,3 @@ class HomeSpider(CrawlSpider):
             if urls not in self.pages:
                 self.pages.add(urls)
                 yield Request(urls, callback=self.parse_item,dont_filter=True)
-        return articleList
