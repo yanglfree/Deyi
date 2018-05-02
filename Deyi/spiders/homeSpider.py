@@ -54,7 +54,7 @@ class HomeSpider(CrawlSpider):
 
     def parse_item(self, response):
         item = ArticleItem()
-        item['title'] = response.xpath('//h1/text()').extract()
+        item['title'] = response.xpath('//h1/text()').extract()[0]
 
         pList = response.xpath('//article[@class="content-main"]/p//text()').extract()
         item['content'] = self.parseContent(pList)
