@@ -23,14 +23,15 @@ class Crack():
         self.password = password
 
     def open(self):
-        self.browser.implicitly_wait(3)
         # 1、输入账号密码回车
         self.browser.get(self.url)
         input_username = self.wait.until(EC.presence_of_element_located((By.ID, 'clf_username')))
-        input_pwd = self.wait.until(EC.presence_of_element_located((By.ID, 'clf_password')))
-        signin = self.wait.until(EC.presence_of_element_located((By.ID, 'clf_submit')))
         input_username.send_keys(self.username)
+
+        input_pwd = self.wait.until(EC.presence_of_element_located((By.ID, 'clf_password')))
         input_pwd.send_keys(self.password)
+
+        signin = self.wait.until(EC.presence_of_element_located((By.ID, 'clf_submit')))
         signin.click()
 
     # def open(self):
@@ -242,10 +243,6 @@ class Crack():
     def crack(self):
         # 打开浏览器
         self.open()
-
-        self.browser.implicitly_wait(3)
-
-
         # 保存的图片名字
         bg_filename = 'bg.jpg'
         fullbg_filename = 'fullbg.jpg'
