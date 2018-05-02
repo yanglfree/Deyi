@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for Deyi project
+# Scrapy settings for home project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,24 +9,17 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'Deyi'
+BOT_NAME = 'home'
 
-SPIDER_MODULES = ['Deyi.spiders']
-NEWSPIDER_MODULE = 'Deyi.spiders'
-
-
-# MYSQL_HOSTS = '127.0.0.1'
-# MYSQL_USER = 'ROOT'
-# MYSQL_PASSWORD = 'Yl040911'
-# NYSQL_PORT = '3306'
-# MYSQL_DB = 'deyi_article'
+SPIDER_MODULES = ['home.spiders']
+NEWSPIDER_MODULE = 'home.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'Deyi (+http://www.yourdomain.com)'
+#USER_AGENT = 'home (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = False
+ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -46,22 +39,21 @@ ROBOTSTXT_OBEY = False
 #TELNETCONSOLE_ENABLED = False
 
 # Override the default request headers:
-DEFAULT_REQUEST_HEADERS = {
-    'User-Agent':'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Mobile Safari/537.36',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-    'Accept-Language': 'en',
-    'Referer' : 'http://m.deyi.com/forum-41-1.html',
-}
+#DEFAULT_REQUEST_HEADERS = {
+#   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+#   'Accept-Language': 'en',
+#}
+
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'Deyi.middlewares.DeyiSpiderMiddleware': 543,
+#    'home.middlewares.HomeSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'Deyi.middlewares.DeyiDownloaderMiddleware': 543,
+#    'home.middlewares.HomeDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -73,7 +65,7 @@ DEFAULT_REQUEST_HEADERS = {
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'Deyi.pipelines.DeyiPipeline': 300,
+#    'home.pipelines.HomePipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
