@@ -5,7 +5,6 @@ from Deyi.items import CommentItem
 from urllib.parse import urljoin
 import pymongo
 
-
 class HomeSpider(CrawlSpider):
     name = 'home'
     allowed_domains = ["deyi.com"]
@@ -66,6 +65,7 @@ class HomeSpider(CrawlSpider):
         self.saveToMongo(item)
         yield item
 
+    # 帖子内容里面含有很多abiao并且分为多段，进行处理合为一段
     def parseContent(self,pList):
         strs = ''
         for str in pList:
@@ -104,8 +104,7 @@ class HomeSpider(CrawlSpider):
                 yield Request(urls, callback=self.parse_item,dont_filter=True)
 
 
-
-    def saveToMongo(self,item):
+    def saveToMongo(self, item):
         client = pymongo.MongoClient(host='localhost', port=27017)
         db = client.deyi
         collection = db.articles

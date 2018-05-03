@@ -10,9 +10,9 @@ import scrapy
 
 # 用户信息
 class UserItem(scrapy.Item):
-    userId = scrapy.Field()
-    avatar = scrapy.Field()
-    userName = scrapy.Field()
+    userId = scrapy.Field() #用户id
+    avatar = scrapy.Field() #头像
+    userName = scrapy.Field() #名称
     level = scrapy.Field() #等级
     userGender = scrapy.Field() #用户性别
     posts = scrapy.Field() #用户发帖数
@@ -25,7 +25,6 @@ class UserItem(scrapy.Item):
     relationship = scrapy.Field() #与本人关系
     isPrivace = scrapy.Field() #是否设置隐私
     pass
-
 
 # 帖子
 class ArticleItem(scrapy.Item):
@@ -42,7 +41,9 @@ class ArticleItem(scrapy.Item):
     reads = scrapy.Field() #阅读数
     ups = scrapy.Field() #点赞数
     content = scrapy.Field() #帖子正文
-    id = scrapy.Field()
+    articleId = scrapy.Field() #帖子ID
+    labels = scrapy.Field() #帖子标签
+    _id = scrapy.Field()
     pass
 
 # 板块
@@ -52,36 +53,40 @@ class ForumItem(scrapy.Item):
     forumImage = scrapy.Field() #板块小图标
     forumTitle = scrapy.Field() #板块名称
     forumDesc = scrapy.Field() #板块概述
+    pass
 
 
 # 凑热闹
 class WeiboItem(scrapy.Item):
-    avatar = scrapy.Field() # 头像
     author = scrapy.Field() # 作者
-    level = scrapy.Field()  # 用户等级
     postTime = scrapy.Field() #发布时间
-    star = scrapy.Field() # 关注
     address = scrapy.Field() #显示的地理位置
     imgs = scrapy.Field() #图片
+    title = scrapy.Field() #标题
     content = scrapy.Field() #正文
     label = scrapy.Field() #标签
+    comments = scrapy.Field() #评论
+    likes = scrapy.Field() #点赞数
+    likeList = scrapy.Field() #点赞列表
+    pass
 
 # 回复
 class CommentItem(scrapy.Item):
-    user = scrapy.Field()  # 用户
+    commentAvatar = scrapy.Field()  # 用户头像
+    commentName = scrapy.Field()   #用户名字
+    commentLevel = scrapy.Field() #用户级别
     ups = scrapy.Field() #点赞数
     postTime = scrapy.Field() # 回复时间
-    authorId = scrapy.Field() #回复人id
     isAuthor = scrapy.Field() # 是否楼主
-    postId = scrapy.Field() #回复者id
+    content = scrapy.Field() #回复内容
     quote = scrapy.Field() # 被引用的评论
-
+    pass
 
 # 活动
 class SpeedDialItem(scrapy.Item):
     speeddialImg = scrapy.Field()
     speeddialName = scrapy.Field()
     speeddialUrl = scrapy.Field()
-
+    pass
 
 
